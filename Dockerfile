@@ -2,10 +2,10 @@ FROM debian:stable-slim
 
 COPY run.sh /run.sh
 
-ARG DEBIAN_FRONTEND=noninteractive
-ARG PIP_BREAK_SYSTEM_PACKAGES=1
+ARG DEBIAN_FRONTEND=noninteractive PIP_BREAK_SYSTEM_PACKAGES=1
 
-RUN apt update && \
+RUN chmod 0700 /run.sh && \
+    apt update && \
     apt install -y --no-install-recommends \
         python3 \
         python3-dev \
